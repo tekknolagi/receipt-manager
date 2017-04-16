@@ -15,7 +15,8 @@
   <% end %>
 
   <p>
-  <%= f.select :store_id, Store.all.collect {|s| [s.name, s.id] } %>
+  <%= f.label :store %>
+  <%= f.select :store_id, Store.all.collect(&:selectable) %>
   </p>
 
   <p>

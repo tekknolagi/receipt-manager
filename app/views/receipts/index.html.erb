@@ -6,6 +6,7 @@
   <tr>
     <th>Store Name</th>
     <th>Purchase Date</th>
+    <th>Total</th>
     <th>Purchaser</th>
   </tr>
 
@@ -13,6 +14,7 @@
     <tr>
       <td><%= link_to receipt.store.name, store_path(receipt.store) %></td>
       <td><%= receipt.purchase_date %></td>
+      <td><%= number_to_currency (receipt.total/100.0) %></td>
       <td><%= receipt.purchaser %></td>
       <td><%= link_to 'Show', receipt_path(receipt) %></td>
       <td><%= link_to 'Edit', edit_receipt_path(receipt) %></td>

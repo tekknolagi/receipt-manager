@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  taxed: false
+  product_id: 1
+  name: MyString
+  unit_price: 1
+  receipt: one
+
+two:
+  taxed: false
+  product_id: 1
+  name: MyString
+  unit_price: 1
+  receipt: two

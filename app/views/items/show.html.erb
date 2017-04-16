@@ -1,0 +1,25 @@
+<% def to_let b
+     if b then "Y" else "N" end
+   end %>
+
+<p>
+<b>Taxed?</b>
+<%= @item.taxed %>
+</p>
+
+<p>
+<b>Product ID:</b>
+<%= @item.product_id %>
+</p>
+
+<p>
+<b>Name:</b>
+<%= @item.name %>
+</p>
+
+<p>
+<b>Unit price:</b>
+<%= @item.unit_price %>
+</p>
+
+<%= link_to 'Edit', edit_item_path(@item) %>

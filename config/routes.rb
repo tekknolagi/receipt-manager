@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
   resources :stores
   resources :receipts
+  resources :items do
+    post :remove, on: :member
+  end
 
   get 'empty/index'
   root 'empty#index'

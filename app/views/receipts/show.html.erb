@@ -9,8 +9,46 @@
 </p>
 
 <p>
+<b>Total:</b>
+<%= number_to_currency (@receipt.total/100.0) %>
+</p>
+
+<p>
 <b>Purchaser:</b>
 <%= @receipt.purchaser %>
 </p>
+
+<p>
+<b>Items:</b>
+</p>
+
+<%= link_to 'Add Item', new_item_path %><br /><br />
+
+<table>
+  <tr>
+    <th>Taxed?</th>
+    <th>Product ID</th>
+    <th>Name</th>
+    <th>Unit Price</th>
+  </tr>
+
+  <% def to_let b
+       if b then "Y" else "N" end
+     end %>
+
+  <% @receipt.items.distinct(&:product_id).each do |item| %>
+    <tr>
+      <td><%= to_let item.taxed %></td>
+      <td><%= item.product_id %></td>
+      <td><%= item.name %></td>
+      <td><%= number_to_currency (item.unit_price/100.0) %></td>
+      <td><%= link_to 'Show', item_path(item) %></td>
+      <td><%= link_to 'Edit', edit_item_path(item) %></td>
+      <td><%= link_to 'Remove', remove_item_path(item, receipt_id: @receipt.id), method: :post
+          #controller: :items, action: :remove, method: :post, id: item.id, receipt_id: @receipt.id
+          %></td>
+    </tr>
+  <% end %>
+</table>
 
 <%= link_to 'Edit', edit_receipt_path(@receipt) %>

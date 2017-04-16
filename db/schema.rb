@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170416153443) do
+ActiveRecord::Schema.define(version: 20170416195141) do
+
+  create_table "items", force: :cascade do |t|
+    t.boolean  "taxed"
+    t.integer  "product_id"
+    t.string   "name"
+    t.integer  "unit_price"
+    t.integer  "receipt_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["receipt_id"], name: "index_items_on_receipt_id"
+  end
 
   create_table "receipts", force: :cascade do |t|
     t.date     "purchase_date"
