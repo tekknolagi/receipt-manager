@@ -4,3 +4,27 @@
 </p>
 
 <%= link_to 'Edit', edit_store_path(@store) %>
+
+<p>
+<b>Receipts:</b>
+</p>
+
+<%= link_to 'Add Item', new_item_path %><br /><br />
+
+<table>
+  <tr>
+    <th>Purchase Date</th>
+    <th>Total</th>
+    <th>Purchaser</th>
+  </tr>
+
+  <% @store.receipts.each do |receipt| %>
+    <tr>
+      <td><%= receipt.purchase_date %></td>
+      <td><%= number_to_currency (receipt.total/100.0) %></td>
+      <td><%= receipt.purchaser %></td>
+      <td><%= link_to 'Show', receipt_path(receipt) %></td>
+      <td><%= link_to 'Edit', edit_receipt_path(receipt) %></td>
+    </tr>
+  <% end %>
+</table>

@@ -18,6 +18,8 @@
 <%= @receipt.purchaser %>
 </p>
 
+<%= link_to 'Edit', edit_receipt_path(@receipt) %>
+
 <p>
 <b>Items:</b>
 </p>
@@ -45,10 +47,7 @@
       <td><%= link_to 'Show', item_path(item) %></td>
       <td><%= link_to 'Edit', edit_item_path(item) %></td>
       <td><%= link_to 'Remove', remove_item_path(item, receipt_id: @receipt.id), method: :post
-          #controller: :items, action: :remove, method: :post, id: item.id, receipt_id: @receipt.id
           %></td>
     </tr>
   <% end %>
 </table>
-
-<%= link_to 'Edit', edit_receipt_path(@receipt) %>
