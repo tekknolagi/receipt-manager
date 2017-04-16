@@ -14,7 +14,7 @@
        if b then "Y" else "N" end
      end %>
 
-  <% @items.distinct(&:product_id).each do |item| %>
+  <% @items.to_a.uniq(&:product_id).each do |item| %>
     <tr>
       <td><%= to_let item.taxed %></td>
       <td><%= item.product_id %></td>
