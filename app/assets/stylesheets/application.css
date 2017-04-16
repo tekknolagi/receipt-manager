@@ -13,3 +13,23 @@
  *= require_tree .
  *= require_self
  */
+
+table tr.tabler-row:hover td {
+  background-color: #eee;
+}
+
+table th {
+  padding: 3px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+table td {
+  padding: 3px;
+}
+
+table {
+  font-family: monospace;
+  border: 1px #6699CC solid;
+  border-spacing: 0px;
+}
