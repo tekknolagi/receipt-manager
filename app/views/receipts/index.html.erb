@@ -1,0 +1,24 @@
+<h1>Receipt list</h1>
+
+<%= link_to 'Add Receipt', new_receipt_path %><br /><br />
+
+<table>
+  <tr>
+    <th>Store Name</th>
+    <th>Purchase Date</th>
+    <th>Purchaser</th>
+  </tr>
+
+  <% @receipts.each do |receipt| %>
+    <tr>
+      <td><%= link_to receipt.store.name, store_path(receipt.store) %></td>
+      <td><%= receipt.purchase_date %></td>
+      <td><%= receipt.purchaser %></td>
+      <td><%= link_to 'Show', receipt_path(receipt) %></td>
+      <td><%= link_to 'Edit', edit_receipt_path(receipt) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<br />
+<%= link_to 'Store List', stores_path %>

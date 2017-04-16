@@ -1,0 +1,17 @@
+<p>
+<b>Store Name:</b>
+<%= link_to @receipt.store.name, store_path(@receipt.store) %>
+</p>
+
+<p>
+<b>Purchase Date:</b>
+<%= @receipt.purchase_date %>
+</p>
+
+<p>
+<b>Purchaser:</b>
+<%= @receipt.purchaser %>
+</p>
+
+<%= link_to 'Edit', edit_receipt_path(@receipt) %> |
+<%= link_to 'Back to index', receipts_path %>

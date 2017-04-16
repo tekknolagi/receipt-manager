@@ -1,0 +1,35 @@
+<%= form_for @receipt do |f| %>
+
+  <% if @receipt.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@receipt.errors.count, "error") %>
+        prohibited this receipt from being saved:
+      </h2>
+      <ul>
+        <% @receipt.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+  <%= f.select :store_id, Store.all.collect {|s| [s.name, s.id] } %>
+  </p>
+
+  <p>
+  <%= f.label :purchase_date %><br />
+  <%= date_select :receipt, :purchase_date %>
+  </p>
+
+  <p>
+  <%= f.label :purchaser %></br />
+  <%= f.text_field :purchaser %>
+  </p>
+
+  <p>
+  <%= f.submit %>
+  </p>
+
+<% end %>
