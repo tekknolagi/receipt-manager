@@ -15,7 +15,7 @@
 
 <p>
 <b>Purchaser:</b>
-<%= @receipt.purchaser %>
+<%= link_to @receipt.purchaser.name, user_path(@receipt.purchaser) %>
 </p>
 
 <%= link_to 'Edit', edit_receipt_path(@receipt) %>

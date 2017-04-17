@@ -1,6 +1,9 @@
 class Receipt < ApplicationRecord
   belongs_to :store
   has_many :items
+  belongs_to :purchaser, class_name: 'User'
+
+  accepts_nested_attributes_for :purchaser
 
   validates :purchase_date, presence: true
   validates :purchaser, presence: true

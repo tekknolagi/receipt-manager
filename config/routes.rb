@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :items do
     post :remove, on: :member
   end
+  resources :users
 
   get 'empty/index'
   root 'empty#index'

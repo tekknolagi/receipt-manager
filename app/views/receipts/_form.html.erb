@@ -25,8 +25,8 @@
   </p>
 
   <p>
-  <%= f.label :purchaser %></br />
-  <%= f.text_field :purchaser %>
+  <%= f.label :purchaser %>
+  <%= f.select :purchaser_id, User.all.collect(&:selectable) %>
   </p>
 
   <p>

@@ -22,7 +22,7 @@
     <tr>
       <td><%= receipt.purchase_date %></td>
       <td><%= number_to_currency (receipt.total/100.0) %></td>
-      <td><%= receipt.purchaser %></td>
+      <td><%= link_to receipt.purchaser.name, user_path(receipt.purchaser) %></td>
       <td><%= link_to 'Show', receipt_path(receipt) %></td>
       <td><%= link_to 'Edit', edit_receipt_path(receipt) %></td>
     </tr>

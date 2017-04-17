@@ -1,21 +1,23 @@
-<h1>Receipt list</h1>
+<p>
+<b>Name:</b>
+<%= @user.name %>
+</p>
 
-<%= link_to 'Add Receipt', new_receipt_path %><br /><br />
+<p>
+<b>Receipts:</b>
+</p>
+
 
 <table>
   <tr>
-    <th>Store Name</th>
     <th>Purchase Date</th>
     <th>Total</th>
-    <th>Purchaser</th>
   </tr>
 
-  <% @receipts.each do |receipt| %>
+  <% @user.receipts.each do |receipt| %>
     <tr>
-      <td><%= link_to receipt.store.name, store_path(receipt.store) %></td>
       <td><%= receipt.purchase_date %></td>
       <td><%= number_to_currency (receipt.total/100.0) %></td>
-      <td><%= link_to receipt.purchaser.name, user_path(receipt.purchaser) %></td>
       <td><%= link_to 'Show', receipt_path(receipt) %></td>
       <td><%= link_to 'Edit', edit_receipt_path(receipt) %></td>
     </tr>
