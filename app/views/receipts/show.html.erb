@@ -29,6 +29,7 @@
 <table>
   <tr>
     <th>Taxed?</th>
+    <th>Qty</th>
     <th>Product ID</th>
     <th>Name</th>
     <th>Unit Price</th>
@@ -38,16 +39,17 @@
        if b then "Y" else "N" end
      end %>
 
-  <% @receipt.items.distinct(&:product_id).each do |item| %>
+  <% @receipt.items.group_by(&:product_id).each do |product_id, items| %>
+    <% item = items.first %>
     <tr>
       <td><%= to_let item.taxed %></td>
+      <td><%= items.length %></td>
       <td><%= item.product_id %></td>
       <td><%= item.name %></td>
       <td><%= number_to_currency (item.unit_price/100.0) %></td>
       <td><%= link_to 'Show', item_path(item) %></td>
       <td><%= link_to 'Edit', edit_item_path(item) %></td>
-      <td><%= link_to 'Remove', remove_item_path(item, receipt_id: @receipt.id), method: :post
-          %></td>
+      <td><%= link_to 'Remove', remove_item_path(item, receipt_id: @receipt.id), method: :post %></td>
     </tr>
   <% end %>
 </table>
