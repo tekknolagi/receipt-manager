@@ -16,7 +16,11 @@
 
   <p>
   <%= f.label :store %>
-  <%= f.select :store_id, Store.all.collect(&:selectable) %>
+  <% if @suggested_store %>
+    <%= f.select :store_id, Store.all.collect(&:selectable), selected: @suggested_store  %>
+  <% else %>
+    <%= f.select :store_id, Store.all.collect(&:selectable) %>
+  <% end %>
   </p>
 
   <p>

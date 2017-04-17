@@ -9,6 +9,7 @@ class ReceiptsController < ApplicationController
 
   def new
     @receipt = Receipt.new
+    @suggested_store = params[:suggested_store]
   end
 
   def edit
