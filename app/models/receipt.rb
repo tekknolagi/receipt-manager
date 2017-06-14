@@ -14,6 +14,6 @@ class Receipt < ApplicationRecord
   end
 
   def selectable
-    [File.join(store.name, purchaser, (total/100.0).to_s), id]
+    [File.join(store.name, purchaser.name, (total/100.0).to_s), id]
   end
 end
