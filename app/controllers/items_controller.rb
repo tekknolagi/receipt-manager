@@ -22,7 +22,8 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new item_params
     if @item.save
-      redirect_to @item
+      flash[:notice] = 'Successfully added item'
+      redirect_to new_item_url(receipt_id: item_params[:receipt_id])
     else
       render 'new'
     end

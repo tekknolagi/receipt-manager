@@ -24,7 +24,7 @@
 <b>Items:</b>
 </p>
 
-<%= link_to 'Add Item', new_item_path %><br /><br />
+<%= link_to 'Add Item', new_item_path(:receipt_id => @receipt.id) %><br /><br />
 
 <table>
   <tr>
